@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szczegóły Pozycji</title>
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --text-color: #1a1a1a;
+            --muted-color: #666666;
+            --border-color: #e5e5e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 4rem 2rem;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .nav-back {
+            margin-bottom: 3rem;
+        }
+
+        .nav-back a {
+            color: var(--muted-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-back a:hover {
+            color: var(--text-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.2;
+        }
+
+        .author {
+            font-size: 1.1rem;
+            color: var(--muted-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            color: #333333;
+            white-space: pre-line; /* Zachowuje entery wpisane w textarea */
+        }
+
+        .no-description {
+            font-style: italic;
+            color: var(--muted-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" th:if="${book != null}">
+    <div class="nav-back">
+        <a th:href="@{/}">← Powrót do katalogu</a>
+    </div>
+
+    <article>
+        <h1 th:text="${book.title}">Tytuł Książki</h1>
+        <div class="author" th:text="${book.author}">Autor Książki</div>
+
+        <div class="description" th:if="${book.description != null and !book.description.isEmpty()}" th:text="${book.description}">
+            Treść opisu...
+        </div>
+        <div class="no-description" th:unless="${book.description != null and !book.description.isEmpty()}">
+            Ta pozycja nie posiada jeszcze opisu.
+        </div>
+    </article>
+</div>
+
+<div class="container" th:unless="${book != null}">
+    <div class="nav-back">
+        <a th:href="@{/}">← Powrót do katalogu</a>
+    </div>
+    <p>Nie odnaleziono szukanej książki.</p>
+</div>
+
+</body>
+</html>

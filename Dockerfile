@@ -7,7 +7,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Budujemy aplikację (omijamy Windowsowy plik mvnw!)
-RUN mvn clean package -DskipTests
+RUN mvn clean package -Dmaven.test.skip=true
 
 # Etap 2: Uruchomienie gotowej aplikacji w lekkim środowisku Javy
 FROM eclipse-temurin:21-jre-jammy

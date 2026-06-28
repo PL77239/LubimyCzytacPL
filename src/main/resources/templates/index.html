@@ -27,7 +27,6 @@
             min-height: 100vh;
         }
 
-        /* Kontener dopasowany do proporcji kwadratowego zdjęcia */
         .bookshelf-container {
             width: 700px;
             height: 700px;
@@ -41,7 +40,7 @@
 
         header {
             position: absolute;
-            top: -60px; /* Przeniesione nad szafkę, żeby nie zasłaniać górnych półek */
+            top: -60px; 
             left: 0;
             right: 0;
             display: flex;
@@ -75,26 +74,24 @@
             color: white;
         }
 
-        /* SIATKA DOPASOWANA DO OKIENEK NA ZDJĘCIU */
+
         .shelf-books-container {
             position: absolute;
-            /* Marginesy odcinające zewnętrzną, grubą ramę na zdjęciu */
             top: 4%;
             bottom: 4%;
             left: 4%;
             right: 4%;
 
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 okienka w poziomie */
-            grid-template-rows: repeat(4, 1fr);    /* 4 okienka w pionie */
+            grid-template-columns: repeat(3, 1fr); 
+            grid-template-rows: repeat(4, 1fr);    
         }
 
-        /* Kontener pozycjonujący książkę wewnątrz konkretnego okienka */
         .book-cell {
             display: flex;
-            justify-content: center; /* Wyśrodkowanie w poziomie */
-            align-items: flex-end;   /* Oparcie książki na dolnej półce */
-            padding-bottom: 15px;    /* Delikatne podniesienie od krawędzi półki */
+            justify-content: center; 
+            align-items: flex-end;   
+            padding-bottom: 15px;   
         }
 
         .book-wrapper {
@@ -138,7 +135,6 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
-        /* EFEKT WYSUNIĘCIA Z PÓŁKI */
         .book-wrapper:hover .book-spine {
             transform: rotateX(5deg) translateY(10px) scale(1.1);
             box-shadow: 0 15px 25px rgba(0,0,0,0.4);
@@ -149,7 +145,6 @@
             filter: brightness(0.7);
         }
 
-        /* DYMEK (TOOLTIP) */
         .book-tooltip {
             position: absolute;
             top: -110px;
